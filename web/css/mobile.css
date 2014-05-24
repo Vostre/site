@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 05/03/2014, 23:49:48
+    Author     : Almir
+*/
+
+#caixa-menu{
+    width: 100%;
+}
+
+#caixa-logo-interna img{
+    height: auto;
+    width: 100%;
+}
+
+.box-menu-interna span{
+    display: none;
+}
+
+#conteudo-interno{
+    width: 95%;
+    margin: 2.5%;
+    height: 95%;
+    font-size: 70%;
+}
+
+.icone-servico{
+    position: relative;
+    height: 70%;
+    margin: 15%;
+    margin-left: 0;
+    display: table-cell;
+}
+
+#caixa-form-contato{
+    width: 60%;
+}
+
+.caixa-detalhe-projeto-logo{
+    width: 39.6%;
+}
+
+.caixa-detalhe-projeto-logo img{
+    width: 120%;
+    max-width: 120%;
+    margin-left: 5%;
+}
+
+.caixa-detalhe-projeto-titulo{
+    height: 28%;
+    
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Vostrè é uma startup brasileira voltada ao desenvolvimento de 
+              soluções criativas e eficientes para os problemas do dia a dia." />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script type="text/javascript" src="{{ asset('js/google.js') }}"></script>
+<meta name="google-site-verification" content="VYL5-G6XZzuLRYSGBreBT3IAk5oEKMBVbiHMI20Kcc4" />
+        <title>{% block title %}Vostrè | Blog Oficial{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/estilos_blog.css') }}" />
+            <link rel="stylesheet" type="text/css" media="screen and (max-width: 690px)" href="{{ asset('css/mobile_blog.css') }}" />
+            <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+            <div id="caixa">
+                <div id="header">
+                    <div id="caixa-logo">
+                        <a href="{{ path('vostre_blog_homepage') }}">
+                            <img src="{{ asset('imagens/logo-preta-'~(app.request.locale|slice(0, 2))~'.png') }}" />
+                        </a>
+                    </div>
+                    <div id="caixa-titulo-header">
+                        <span>Blog Oficial</span>
+                    </div>
+                    <div id="caixa-voltar">
+                        <div id="caixa-voltar-conteudo">
+                            <p><a class="links" href="{{ path('vostre_site_index') }}">Voltar para o site</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="caixa-direita">
+                    <div id="caixa-direita-titulo">
+                        Postagens
+                    </div>
+                    {% set ano = '' %}
+                    {% set mes = '' %}
+                    {% for postMes in postsMes %}
+                        {% if postMes.ano != ano %}
+                            <div class="ano-postagem">{{ postMes.ano}}</div>
+                            {% set ano = postMes.ano %}
+                        {% endif %}
+                        
+                        {% if postMes.mes != mes %}
+                            <div class="mes-postagem">{{ postMes.mes}}</div>
+                            {% set mes = postMes.mes %}
+                        {% endif %}
+                            <div class="caixa-direita-posts">
+                                <a href="{{ path('vostre_blog_post', {'slug': postMes.slug}) }}" 
+                                   class="links">
+                                    {{ postMes.titulo }}
+                                </a>
+                            </div>
+                    {% endfor %}
+                    {#<div class="mes-postagem">Janeiro</div>
+                    <div class="caixa-direita-posts">
+                        <a href="#" class="links">Teste</a>
+                    </div>
+                    <div class="caixa-direita-posts">
+                        <a href="#" class="links">Outro Teste</a>
+                    </div>
+                    
+                    <div class="mes-postagem">Fevereiro</div>
+                    <div class="caixa-direita-posts">
+                        <a href="#" class="links">Mais Um Teste</a>
+                    </div>#}
+                </div>
+                <div id="conteudo">
+                    {% block conteudo %}
+                        {% for post in posts %}
+                            <article class="blog-post">
+                                <div class="titulo-post">{{ post.titulo }}</div>
+                                <div class="autor-post">
+                                    Por {{ post.autor.nome }} {{ post.autor.sobrenome }}
+                                </div>
+                                <div class="data-post">
+                                    {{ post.dataCriacao|date('d/m/Y H:i:s', "America/Sao_Paulo") }}
+                                </div>
+                                <div class="conteudo-post">
+                                    {% if post.imagem %}
+                                        <div class="box-imagem">
+                                            <img src="{{ asset('uploads/posts/banner/'~post.imagem) }}" class="imagem-post" />
+                                        </div>
+                                    {% endif %}
+                                    <span class="clear"></span>
+                                    <div class="subtitulo-post">
+                                        {{ post.subtitulo }}
+                                    </div>
+                                    <div class="texto-post">
+                                        <p>
+                                            {{ post.texto | slice(0, 300) | raw }}...
+                                        </p>
+                                        <br />
+                                        <p><a href="{{ path('vostre_blog_post', 
+                                                    {'slug': post.slug}) }}" class="links">Continuar Lendo</a></p>
+                                        {#<p class="milisegundos">99098690568746</p>#}
+                                        <br />
+                                    </div>
+                                </div>
+                            </article>
+                            <div class="tags-post">
+                                Tags: 
+                                {% for tag in post.tags %}
+                                <a class="links" 
+                                   href="{{ path('vostre_blog_tag_busca', {tag: tag.tag}) }}">{{ tag.tag }}</a>
+                                    {% if loop.index != loop.length %}
+                                        -
+                                    {% endif %}
+                                {% endfor %}
+                            </div>                        
+                        {% endfor %}                        
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#conteudo, #caixa-direita').niceScroll({
+                        cursorcolor: '#D00'
+                    });
+                    var b = document.documentElement;
+b.setAttribute('data-useragent',  navigator.userAgent);
+b.setAttribute('data-platform', navigator.platform );
+                });
+            </script>
+        {% endblock %}
+    </body>
+</html>

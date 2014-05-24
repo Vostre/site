@@ -1,0 +1,63 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <div id="caixa">
+        <div id="caixa-logo-interna">
+            <a href="{{ path('vostre_site_index') }}"><img src="{{ asset('imagens/logo-preta-'~(app.request.locale|slice(0, 2))~'.png') }}" /></a>
+        </div>
+        <ul id="lista-bandeiras-interna">
+            <li>
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale' : 'pt'})) }}">
+                    <img title="Portugu&ecirc;s" src="{{ asset('imagens/bra.png') }}" />
+                </a>
+            </li>
+            <li>
+                <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale' : 'en'})) }}">
+                    <img title="English" src="{{ asset('imagens/usa.png') }}" />
+                </a>
+            </li>
+        </ul>
+{#        <p>{{ app.request.attributes.get('_route_params') }}</p>#}
+        <div id="caixa-menu-interna">
+            <div class="box-menu-interna">
+                <div class="conteudo-menu-interna">
+                    <a href="{{ path('vostre_site_servicos') }}">
+                        <img class="icones-menu-interna" src="{{ asset('imagens/icone-servicos-vermelho.png') }}" />
+                        <span class="titulos-menu-interna">{% trans %}menu.servicos{% endtrans %}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-menu-interna">
+                <div class="conteudo-menu-interna">
+                    <a href="{{ path('vostre_site_portfolio') }}">
+                        <img class="icones-menu-interna" src="{{ asset('imagens/icone-portfolio-vermelho.png') }}" />
+                        <span class="titulos-menu-interna">{% trans %}menu.portfolio{% endtrans %}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-menu-interna">
+                <div class="conteudo-menu-interna">
+                    <a href="{{ path('vostre_site_contato') }}">
+                        <img class="icones-menu-interna" src="{{ asset('imagens/icone-contato-vermelho.png') }}" />
+                        <span class="titulos-menu-interna">{% trans %}menu.contato{% endtrans %}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-menu-interna">
+                <div class="conteudo-menu-interna">
+                    <a href="{{ path('vostre_site_sobre') }}">
+                        <img class="icones-menu-interna" src="{{ asset('imagens/icone-sobre-vermelho.png') }}" />
+                        <span class="titulos-menu-interna">{% trans %}menu.sobre{% endtrans %}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% block conteudo %}
+            <div id="conteudo-interno">
+                <h1 class="titulo-interno">{{ pagina }}</h1>
+            </div>        
+        {% endblock %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+{% endblock %}

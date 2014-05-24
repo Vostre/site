@@ -1,0 +1,35 @@
+vostre_site_servicos:
+    pattern: /servicos
+    defaults: { _controller: VostreSiteBundle:Page:servicos }
+    requirements:
+        _method: GET
+        
+vostre_site_portfolio:
+    pattern: /portfolio
+    defaults: { _controller: VostreSiteBundle:Page:portfolio }
+    requirements:
+        _method: GET
+        
+vostre_site_portfolio_detalhe:
+    pattern: /portfolio/{projeto}
+    defaults: { _controller: VostreSiteBundle:Portfolio:detalhe, projeto: '' }
+    requirements:
+        _method: GET
+        
+vostre_site_contato:
+    pattern: /contato
+    defaults: { _controller: VostreSiteBundle:Page:contato }
+    requirements:
+        _method: GET|POST
+        
+vostre_site_sobre:
+    pattern: /sobre
+    defaults: { _controller: VostreSiteBundle:Page:sobre }
+    requirements:
+        _method: GET
+        
+vostre_site_index:
+    pattern:  /{_locale}
+    defaults: { _controller: VostreSiteBundle:Page:index, _locale: pt_BR }
+    requirements:
+        _method:  GET

@@ -1,0 +1,67 @@
+site:
+    titulo:
+        index: Vostr&egrave; - Softwares and Advice
+        servicos: Vostr&egrave; - Softwares and Advice | Services
+        portfolio: Vostr&egrave; - Softwares and Advice | Portfolio
+        contato: Vostr&egrave; - Softwares and Advice | Contact
+        sobre: Vostr&egrave; - Softwares and Advice | About
+menu:
+    servicos: Services
+    portfolio: Portfolio
+    contato: Contact
+    sobre: About
+interna:
+    titulo:
+        servicos: Services
+        portfolio: Portfolio
+        contato: Contact
+        sobre: About
+    subtitulo:
+        servicos: See our fields of work!
+        portfolio: See what we've done and what we are doing!
+        contato: Send us a message! We can't wait for it!
+        sobre: Discover Vostr&egrave;!
+servicos:
+    sistemas:
+        web: Web Systems
+        desktop: Softwares
+    sites: Websites
+    consultoria: Advice
+    integracao: Social Media Integration
+    layouts: Layouts
+portfolio:
+    titulo:
+        circular: Vostr&egrave; Circular
+    descricao:
+        resumida:
+            circular: This project aims to improve the access to information about buses routes and schedules.
+        completa:
+            circular: Have you ever needed to take a bus to somewhere, but you had no idea about it's route? Or have you ever found a bus stop, but had no idea if the bus you needed to take was passing by?</p><br /><p>This is Circular's goal, our newest project, which will debut in a few months! Don't worry about it anymore.</p><p>Information wherever you are.</p><br /><p>Are you interested? Send us a message! We're looking for partnership!
+    detalhes: Details
+    recursos:
+        dados: Bus stop data (routes, schedules, landmark)
+        informacoes: Information about buses and companies
+        codigo: No QR Codes or any other symbol needed
+    site:
+        desenvolvimento: Under development
+contato:
+    form:
+        nome: Name
+        email: Email
+        titulo: Subject
+        mensagem: Message
+    email: You can also send an email to
+    telefone: or call
+sobre:
+    nome:
+        titulo: The Name
+        descricao: Vostr&egrave; is in Barra do Pira&iacute;, Rio de Janeiro, a city known as "The Valley Pearl".</p> <p>The startup name came from the pearl generator, the oyster&colon; "Vostre".</p><p>Vostr&egrave; means "You" in Catalan.
+    
+    idealizador:
+        titulo: The Founder
+        descricao: Almir J&uacute;nior is graduated as a Systems Analist at Funda&ccedil;&atilde;o D. Andr&eacute; Arcoverde, in Valen&ccedil;a, Rio de Janeiro.
+forms:
+    contato:
+        submit: Send
+rodape:
+    legal: All Rights Reserved

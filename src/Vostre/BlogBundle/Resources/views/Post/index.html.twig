@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Vostrè é uma startup brasileira voltada ao desenvolvimento de 
+              soluções criativas e eficientes para os problemas do dia a dia." />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {#<script type="text/javascript" src="{{ asset('js/google.js') }}"></script>#}
+{#<meta name="google-site-verification" content="VYL5-G6XZzuLRYSGBreBT3IAk5oEKMBVbiHMI20Kcc4" />#}
+        <title>{% block title %}{% trans %}blog.titulo.index{% endtrans %}{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/estilos_blog.css') }}" />
+            <link rel="stylesheet" type="text/css" media="screen and (max-width: 690px)" href="{{ asset('css/mobile_blog.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.custom.css') }}" />
+            <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+            <table class="tabelas">
+                <thead>
+                    <tr>
+                        <td>T&iacute;tulo</td>
+                        <td>Data</td>
+                        <td>Status</td>
+                        <td colspan="2">A&ccedil;&otilde;es</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                    <tr>
+                        <td>{{ post.titulo }}</td>
+                        <td>{{ post.dataCriacao|date('d/m/Y') }}</td>
+                        <td>{{ post.ativo|default('Ativo') }}</td>
+                        <td><a onclick="return false;" class="post-links-editar" id="{{ post.id }}}" 
+                               href="{{ path('vostre_blog_admin_post_form', 
+                                        {'id_post': post.id}) }}">Editar</a></td>
+                        {% if post.ativo == 1 %}
+                            <td><a onclick="return false;" class="post-links-reativar" 
+                               href="{{ path('vostre_blog_admin_post_reativar', 
+                                        {'id_post': post.id}) }}">Reativar</a></td>
+                        {% else %}
+                            <td><a onclick="return false;" class="post-links-excluir" 
+                               href="{{ path('vostre_blog_admin_post_inativar', 
+                                        {'id_post': post.id}) }}">Excluir</a></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        <div id="caixa-form"></div>
+        <input type="button" value="Nova Postagem" id="novo-post" />
+        {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/jquery.form.js') }}"></script>
+{#            <script type="text/javascript" src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>#}
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    
+                    $cx = $("#caixa-form").dialog({
+                        autoOpen: false,
+                        width: '80%',
+                        heigth: 'auto',
+                        title: 'Postagem',
+                        resizable: false,
+                        draggable: true,
+                        modal: true,
+                        show: 'blind',
+                        hide: 'blind',
+                        closeText: 'Fechar',
+                        position: 'top'
+                    });
+                    
+                    $.each($('.post-links-editar'), function(){
+                        $(this).click(function(e){
+                            
+                            $path = $(this).attr('href');
+                            
+                            $.ajax({
+                                type: 'GET',
+                                url: $path,
+                                cache: 'false',
+                                dataType: 'html',
+                                success: function(data){
+                                    $('#caixa-form').html(data);
+                                    $cx.dialog('open');
+                                }
+                            });
+                            e.preventDefault();
+                        });
+                    });
+                    
+                    $.each($('.post-links-excluir'), function(){
+                        $(this).click(function(e){
+                            
+                            $path = $(this).attr('href');
+                            
+                            $.ajax({
+                                type: 'GET',
+                                url: $path,
+                                cache: 'false',
+                                dataType: 'html',
+                                success: function(data){
+                                    //$('#caixa-form').html("<p>Excluido com sucesso!</p>");
+                                    history.go();
+                                    //$cx.dialog('open');
+                                }
+                            });
+                            e.preventDefault();
+                        });
+                    });
+                    
+                    $.each($('.post-links-reativar'), function(){
+                        $(this).click(function(e){
+                            
+                            $path = $(this).attr('href');
+                            
+                            $.ajax({
+                                type: 'GET',
+                                url: $path,
+                                cache: 'false',
+                                dataType: 'html',
+                                success: function(data){
+                                    //$('#caixa-form').html("<p>Ativado com sucesso!</p>");
+                                    //$cx.dialog('open');
+                                    history.go();
+                                }
+                            });
+                            e.preventDefault();
+                        });
+                    });
+                    
+                    $('#novo-post').click(function(e){
+                        $.ajax({
+                            type: 'GET',
+                            url: "{{ path('vostre_blog_admin_post_form', 
+                                        {'id_post': -1}) }}",
+                            cache: 'false',
+                            dataType: 'html',
+                            success: function(data){
+                                $('#caixa-form').html(data);
+{#                                $("#caixa-form").dialog('open');#}
+                            }
+                        });
+                        $("#caixa-form").dialog('open');
+                        e.preventDefault();
+                    });
+                });
+            </script>
+        {% endblock %}
+    </body>
+</html>

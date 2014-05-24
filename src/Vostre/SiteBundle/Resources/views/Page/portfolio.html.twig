@@ -1,0 +1,54 @@
+{# empty Twig template #}
+{% extends "VostreSiteBundle::layout.html.twig" %}
+{% block title %}{% trans %}site.titulo.portfolio{% endtrans %}{% endblock %}
+{% block conteudo %}
+<script type="text/javascript" src="{{ asset('js/google.js') }}"></script>
+<script>
+{#  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48668805-1', 'vostre.com.br');
+  ga('send', 'pageview');#}
+
+</script>
+    <div id="conteudo-interno">
+        <h1 class="titulo-interno">{% trans %}interna.titulo.portfolio{% endtrans %}</h1>
+        <h4 class="subtitulo-interno">{% trans %}interna.subtitulo.portfolio{% endtrans %}</h4>
+        <br />
+        <div class="caixa-projeto">
+            <div class="imagem-projeto">
+                <img src="{{ asset('imagens/logos-projetos/logo-circular.png') }}" />
+            </div>
+            <div class="descricao-projeto">
+                <h4 class="titulo-projeto">{% trans %}portfolio.titulo.circular{% endtrans %}</h4>
+                <p class="texto-descricao-projeto">{% trans %}portfolio.descricao.resumida.circular{% endtrans %}</p>
+                <div class="link-detalhes-projeto">
+                     <p class="texto-site">
+                         <a class="links" 
+                            href="{{ path('vostre_site_portfolio_detalhe', {'projeto' : 'circular'}) }}">
+                                    {% trans %}portfolio.detalhes{% endtrans %}
+                         </a>
+                     </p>
+                 </div>
+            </div>
+            <div class="site-projeto">
+                <p class="texto-site">Site: {% trans %}portfolio.site.desenvolvimento{% endtrans %}</p>
+            </div>
+        </div>
+        
+        {#<div class="caixa-projeto">
+            <div class="imagem-projeto">
+                <img src="{{ asset('imagens/logos-projetos/logo-repertori.png') }}" />
+            </div>
+            <div class="descricao-projeto">
+                <h4 class="titulo-projeto">Vostr&egrave; Repertori</h4>
+                <p class="texto-descricao-projeto">Gerencie o repertório de sua banda de onde estiver.</p>
+            </div>
+            <div class="site-projeto">
+                <p class="texto-site">Site: Em desenvolvimento</p>
+            </div>
+        </div>#}
+    </div>        
+{% endblock %}

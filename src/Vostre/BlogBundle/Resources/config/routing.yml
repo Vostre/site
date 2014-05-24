@@ -1,0 +1,98 @@
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: blog/admin/profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: blog/admin/register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: blog/admin/resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: blog/admin/profile
+
+fos_user_security_login:
+    pattern: /blog/admin/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+    
+fos_user_security_check:
+    pattern: /blog/admin/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+fos_user_security_logout:
+    pattern: /blog/admin/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+vostre_site_index:
+    resource: "@VostreSiteBundle/Resources/config/routing.yml"
+    prefix: /
+
+vostre_blog_homepage:
+    pattern:  /blog
+    defaults: { _controller: VostreBlogBundle:Page:index }
+
+vostre_blog_admin:
+    pattern: /blog/admin
+    defaults: { _controller: VostreBlogBundle:Page:admin }
+    requirements:
+        _method: GET|POST
+    
+vostre_blog_post:
+    pattern:  /blog/{slug}
+    defaults: { _controller: VostreBlogBundle:Page:post }
+    requirements:
+        _method: GET|POST
+    
+vostre_blog_tag_busca:
+    pattern:  /blog/busca/tag/{tag}
+    defaults: { _controller: VostreBlogBundle:Page:busca }
+
+vostre_blog_comentario_form:
+    pattern: /blog/comentario/form
+    defaults: { _controller: VostreBlogBundle:Comentario:form }
+    requirements:
+        _method: GET|POST
+
+vostre_blog_comentario_cadastrar:
+    pattern:  /blog/comentario/cadastrar/{id_post}
+    defaults: { _controller: VostreBlogBundle:Comentario:cadastrar }
+    requirements:
+        _method: POST
+
+##### ADMINISTRACAO #####
+
+vostre_blog_admin_post_index:
+    pattern: /blog/admin/post
+    defaults: { _controller: VostreBlogBundle:Post:index }
+    requirements:
+        _method: GET|POST
+
+vostre_blog_admin_post_form:
+    pattern: /blog/admin/post/form/{id_post}
+    defaults: { _controller: VostreBlogBundle:Post:form, id_post: -1 }
+    requirements:
+        _method: GET|POST
+
+vostre_blog_admin_post_cadastrar:
+    pattern: /blog/admin/post/cadastrar/{id_post}
+    defaults: { _controller: VostreBlogBundle:Post:cadastrar, id_post: -1 }
+    requirements:
+        _method: POST
+        
+vostre_blog_admin_post_inativar:
+    pattern: /blog/admin/post/inativar/{id_post}
+    defaults: { _controller: VostreBlogBundle:Post:inativar, id_post: -1 }
+    requirements:
+        _method: GET|POST
+        
+vostre_blog_admin_post_reativar:
+    pattern: /blog/admin/post/reativar/{id_post}
+    defaults: { _controller: VostreBlogBundle:Post:reativar, id_post: -1 }
+    requirements:
+        _method: GET|POST

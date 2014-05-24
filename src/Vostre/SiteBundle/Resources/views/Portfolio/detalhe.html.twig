@@ -1,0 +1,42 @@
+{# empty Twig template #}
+{% extends "VostreSiteBundle::layout.html.twig" %}
+{% block title %}{% trans %}site.titulo.portfolio{% endtrans %}{% endblock %}
+{% block conteudo %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48668805-1', 'vostre.com.br');
+  ga('send', 'pageview');
+
+</script>
+<div id="conteudo-interno">
+    {#<h1 class="titulo-interno">{% trans %}Circular{% endtrans %}</h1>
+        <h4 class="subtitulo-interno">{% trans %}interna.subtitulo.portfolio{% endtrans %}</h4>
+        <br />#}
+        <div class="caixa-detalhe">
+            <div class="caixa-detalhe-projeto-logo">
+                <img src="{{ asset('imagens/logos-projetos/logo-circular.png') }}" />
+            </div>
+            <div class="caixa-detalhe-projeto-titulo titulo-interno">
+                <p>Circular</p>
+                <br />
+                <p>Site: {% trans %}portfolio.site.desenvolvimento{% endtrans %}</p>
+            </div>
+            <div class="caixa-detalhe-projeto-descricao">
+                <div class="caixa-detalhe-projeto-descricao-texto">
+                    <p>{% trans %}portfolio.descricao.completa.circular{% endtrans %}</p>
+                </div>
+                <div class="caixa-detalhe-projeto-descricao-recursos">
+                    <ul class="projeto-recursos">
+                        <li>{% trans %}portfolio.recursos.dados{% endtrans %}</li>
+                        <li>{% trans %}portfolio.recursos.informacoes{% endtrans %}</li>
+                        <li>{% trans %}portfolio.recursos.codigo{% endtrans %}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

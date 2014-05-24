@@ -1,0 +1,67 @@
+site:
+    titulo:
+        index: Vostr&egrave; - Sistemas e Consultoria
+        servicos: Vostr&egrave; - Sistemas e Consultoria | Servi&ccedil;os
+        portfolio: Vostr&egrave; - Sistemas e Consultoria | Portf&oacute;lio
+        contato: Vostr&egrave; - Sistemas e Consultoria | Contato
+        sobre: Vostr&egrave; - Sistemas e Consultoria | Sobre
+menu:
+    servicos: Servi&ccedil;os
+    portfolio: Portf&oacute;lio
+    contato: Contato
+    sobre: Sobre
+interna:
+    titulo:
+        servicos: Servi&ccedil;os
+        portfolio: Portf&oacute;lio
+        contato: Contato
+        sobre: Sobre
+    subtitulo:
+        servicos: Confira nossas &Aacute;reas de atua&ccedil;&atilde;o!
+        portfolio: Confira os projetos desenvolvidos e em desenvolvimento!
+        contato: Entre em contato! Esperamos sua mensagem!
+        sobre: Conhe&ccedil;a a Vostr&egrave;!
+servicos:
+    sistemas:
+        web: Sistemas Web
+        desktop: Sistemas Desktop
+    sites: Sites
+    consultoria: Consultoria
+    integracao: Integra&ccedil;&atilde;o Redes Sociais
+    layouts: Layouts
+portfolio:
+    titulo:
+        circular: Vostr&egrave; Circular
+    descricao:
+        resumida:
+            circular: O projeto visa melhorar a informa&ccedil;&atilde;o acerca do transporte público, deficit&aacute;ria em grande parte do país, abordada de uma nova forma.
+        completa:
+            circular: J&aacute; precisou pegar um &ocirc;nibus para algum lugar e n&atilde;o sabia o hor&aacute;rio? Ou quem sabe viu uma placa sinalizando um ponto, mas n&atilde;o fazia ideia se o &ocirc;nibus que voc&ecirc; precisava passava por ali?</p><br /><p>Este &eacute; o objetivo do Circular, nosso mais novo projeto, que estrear&aacute; dentro de alguns meses! Nunca mais tenha este tipo de dor de cabe&ccedil;a.</p><p>Informa&ccedil;&atilde;o precisa, onde voc&ecirc; estiver.</p><br /><p>Se interessou pelo projeto? Entre em contato conosco! Buscamos parcerias!
+    detalhes: Detalhes
+    recursos:
+        dados: Dados do ponto escolhido (itiner&aacute;rios, hor&aacute;rios, ponto de refer&ecirc;ncia)
+        informacoes: Informa&ccedil;&otilde;es sobre os &ocirc;nibus e empresas
+        codigo: Sem a necessidade de escanear QR Codes ou qualquer outro tipo de sinal gr&aacute;fico
+    site:
+        desenvolvimento: Em desenvolvimento
+contato:
+    form:
+        nome: Nome
+        email: Email
+        titulo: Título
+        mensagem: Mensagem
+    email: Se preferir, envie um email para
+    telefone: ou ligue
+sobre:
+    nome:
+        titulo: O Nome
+        descricao: Vostr&egrave; est&aacute; localizada em Barra do Pira&iacute;, Rio de Janeiro, cidade conhecida como "A P&eacute;rola do Vale".</p> <p>O nome da Startup surgiu da variação Arm&ecirc;nia do nome da geradora da p&eacute;rola, a ostra&colon; "Vostre".</p><p>Vostr&egrave; significa "Voc&ecirc;" em Catal&atilde;o.
+    
+    idealizador:
+        titulo: O Idealizador
+        descricao: Almir J&uacute;nior &eacute; graduado em An&aacute;lise e Desenvolvimento de Sistemas pela Funda&ccedil;&atilde;o D. Andr&eacute; Arcoverde, situada em Valen&ccedil;a, Rio de Janeiro.
+forms:
+    contato:
+        submit: Enviar
+rodape:
+    legal: Todos os Direitos Reservados

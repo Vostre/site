@@ -1,0 +1,80 @@
+{# empty Twig template #}
+{% extends "VostreBlogBundle:Page:index.html.twig" %}
+{% block conteudo %}
+    <article class="blog-post">
+        <div class="titulo-post">{{ post.titulo }}</div>
+        <div class="autor-post">
+            Por {{ post.autor.nome }} {{ post.autor.sobrenome }}
+        </div>
+        <div class="data-post">
+            Postado em {{ post.dataCriacao|date('d/m/Y H:i:s', "America/Sao_Paulo") }}
+        </div>
+        <div class="conteudo-post">
+            {% if post.imagem %}
+                <div class="box-imagem">
+                    <img src="{{ asset('uploads/posts/banner/'~post.imagem) }}" class="imagem-post" />
+                </div>
+            {% endif %}
+            <span class="clear"></span>
+            <div class="subtitulo-post">
+                {{ post.subtitulo }}
+            </div>
+            <div class="texto-post">
+                <p>
+                    {{ post.texto|raw }}
+                </p>
+                <br />
+                <p class="milisegundos">{{ post.dataCriacao|date('U') }}</p>
+                <br />
+            </div>
+        </div>
+    </article>
+    <div class="tags-post">
+        Tags: 
+        {% for tag in post.tags %}
+        <a class="links" 
+           href="{{ path('vostre_blog_tag_busca', {tag: tag.tag}) }}">{{ tag.tag }}</a>
+            {% if loop.index != loop.length %}
+                -
+            {% endif %}
+        {% endfor %}
+    </div>
+{% if postsRelacionados|length > 0 %}
+<h4 class="alinhamento-esquerda subtitulo-auxiliar">Leia Tamb&eacute;m:</h4>
+{% endif %}
+<div class="posts-relacionados">
+    {% for umPost in postsRelacionados %}
+        <div class="link-post-relacionado">
+            <a href="{{ path('vostre_blog_post', {'slug': umPost.slug}) }}" class="links">
+                {{ umPost.titulo }}</a>
+            <p class="subtitulo-post-relacionado">{{ umPost.subtitulo }}</p>
+        </div>
+    {% endfor %}
+</div>
+<h4 class="alinhamento-esquerda subtitulo-auxiliar">Coment&aacute;rios:</h4>
+<div id="caixa-comentarios">
+    {% for comentario in post.comentarios %}
+    <div class="comentario" id="comentario-{{ comentario.id }}">
+        <div class="comentario-autor">
+            <strong>{{ comentario.autor }}</strong>
+        </div>
+        <div class="comentario-data">
+            {{ comentario.dataCriacao|date('d/m/Y H:i:s', "America/Sao_Paulo") }}
+        </div>
+        <div class="comentario-titulo">
+            {{ comentario.titulo }}
+        </div>
+        <br />
+        <div class="comentario-texto">
+            {{ comentario.texto }}
+        </div>
+    </div>
+    {% else %}
+    <p>Nenhum coment&aacute;rio at&eacute; o momento. Seja o primeiro!</p>
+    {% endfor %}
+</div>
+<br />
+<h5 class="alinhamento-esquerda subtitulo-auxiliar">Deixe seu coment&aacute;rio:</h5>
+{% include 'VostreBlogBundle:Comentario:form.html.twig' %}
+<br />
+{% endblock %}

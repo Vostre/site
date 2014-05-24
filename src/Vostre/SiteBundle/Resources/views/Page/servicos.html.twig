@@ -1,0 +1,62 @@
+{# empty Twig template #}
+{% extends "VostreSiteBundle::layout.html.twig" %}
+{% block title %}{% trans %}site.titulo.servicos{% endtrans %}{% endblock %}
+{% block conteudo %}
+<script type="text/javascript" src="{{ asset('js/google.js') }}"></script>
+<script>
+{#  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48668805-1', 'vostre.com.br');
+  ga('send', 'pageview');#}
+
+</script>
+    <div id="conteudo-interno">
+        <h1 class="titulo-interno">{% trans %}interna.titulo.servicos{% endtrans %}</h1>
+        <h4 class="subtitulo-interno">{% trans %}interna.subtitulo.servicos{% endtrans %}</h4>
+        
+        <div class="caixa-servico">
+            <div class="conteudo-servico">
+                <img src="{{ asset('imagens/icone-servico-sistema-web.png') }}" class="icone-servico" />
+                <span class="nome-servico">{% trans %}servicos.sistemas.web{% endtrans %}</span>
+            </div>
+        </div>
+        
+        <div class="caixa-servico">
+            <div class="conteudo-servico">
+                <img src="{{ asset('imagens/icone-servico-web.png') }}" class="icone-servico" />
+                <span class="nome-servico">{% trans %}servicos.sites{% endtrans %}</span>
+            </div>
+        </div>
+        
+        <div class="caixa-servico">
+            <div class="conteudo-servico">
+                <img src="{{ asset('imagens/icone-servico-desktop.png') }}" class="icone-servico" />
+                <span class="nome-servico">{% trans %}servicos.sistemas.desktop{% endtrans %}</span>
+            </div>
+        </div>
+        
+        <div class="caixa-servico">
+            <div class="conteudo-servico">
+                <img src="{{ asset('imagens/icone-servico-consultoria.png') }}" class="icone-servico" />
+                <span class="nome-servico">{% trans %}servicos.consultoria{% endtrans %}</span>
+            </div>
+        </div>
+        
+        <div class="caixa-servico">
+            <div class="conteudo-servico">
+                <img src="{{ asset('imagens/icone-servico-integracao.png') }}" class="icone-servico" />
+                <span class="nome-servico">{% trans %}servicos.integracao{% endtrans %}</span>
+            </div>
+        </div>
+        
+        <div class="caixa-servico">
+            <div class="conteudo-servico">
+                <img src="{{ asset('imagens/icone-servico-layout.png') }}" class="icone-servico" />
+                <span class="nome-servico">{% trans %}servicos.layouts{% endtrans %}</span>
+            </div>
+        </div>
+    </div>        
+{% endblock %}

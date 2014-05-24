@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06/04/2014, 23:16:57
+    Author     : Almir
+*/
+
+/*@media screen and (min-width:0\0) {  
+   #caixa-voltar{
+        right: 20%;
+    }
+
+    #caixa-voltar[data-useragent*='MSIE 10.0']{
+      right: 20%;
+    }
+}  */
+
+#caixa-voltar[data-useragent*='MSIE 10.0']{
+      right: 20%;
+    }

@@ -1,0 +1,8 @@
+vostre_blog:
+    resource: "@VostreBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+vostre_site:
+    resource: "@VostreSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+

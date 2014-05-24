@@ -1,0 +1,29 @@
+{# empty Twig template #}
+<form name="gerencia-post" id="gerencia-post"
+      action="{{ path('vostre_blog_admin_post_cadastrar', {'id_post': post.id}) }}" 
+      method="POST" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <input type="submit" value="Cadastrar" />
+    </p>
+</form>
+<link rel="stylesheet" href="{{ asset('css/estilos_blog.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/default/style.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/markitup/style.css') }}" />
+<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.form.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.markitup.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/set.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#vostre_blogbundle_post_texto").markItUp(mySettings);
+        
+       {# $('#gerencia-post').submit(function(){
+            $(this).ajaxSubmit(function(data){
+                $("#caixa-form").dialog('close');
+                return false;
+            });
+        });#}
+        
+    });
+</script>
