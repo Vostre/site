@@ -1,6 +1,6 @@
 Vostrè - Site 2.0
 
-Desenvolvimento da versão 2.0 do site da vostre.
+Desenvolvimento da versão 2.0 do site da Vostrè.
 
 Versão para experimentos e novas funcionalidades. Principais objetivos:
 
