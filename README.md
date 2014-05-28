@@ -5,7 +5,7 @@ Desenvolvimento da versão 2.0 do site da Vostrè.
 
 Versão para experimentos e novas funcionalidades.
 
-Principais objetivos:
+Principais objetivos
 =====================
 
 Atualização da interface do site, tornando-a mais amigável e acessível.
@@ -16,7 +16,7 @@ Tradução do site para o espanhol.
 
 Reimplantação do blog, atualizando sua interface e parte administrativa.
 
-Frameworks utilizados:
+Frameworks utilizados
 ======================
 
 Front-End: Twitter Bootstrap
